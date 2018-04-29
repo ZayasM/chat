@@ -32,6 +32,7 @@ group :development, :test do
   gem 'faker', '~> 1.8', '>= 1.8.7'
   gem 'database_cleaner', '~> 1.7'
   gem 'mongoid', '~> 6.0'
+  gem 'rack-cors', '~> 0.3.1'
 end
 
 group :development do
