@@ -1,48 +1,42 @@
 <template>
   <div id="app">
-    <register-user></register-user>
+    <router-view></router-view>
+
   </div>
-  </template>
+</template>
 
-  <script>
-  import RegisterUser from './components/auths/RegisterUser'
+<script>
 
-  
+export default {
+  name: 'app',
+}
+</script>
 
-  export default {
-    name: 'app',
-    components:{
-      RegisterUser
-    }
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
 
-  }
-  </script>
+h1, h2 {
+  font-weight: normal;
+}
 
-  <style>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-  }
+ul {
+  list-style-type: none;
+  padding: 0;
+}
 
-  h1, h2 {
-    font-weight: normal;
-  }
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
 
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-
-  a {
-    color: #42b983;
-  }
-  </style>
+a {
+  color: #42b983;
+}
+</style>
