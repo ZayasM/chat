@@ -1,17 +1,16 @@
 import Vue from 'vue'
 import App from './App.vue'
 import axios from 'axios'
-import VueRouter from 'vue-router'
 import { createRouter } from './route.js'
+import actionCable from 'actioncable'
+import vueSession from 'vue-session'
+
 
 
 process.env.DOMAIN = "http://localhost:3000"
 Vue.prototype.$http = axios
-Vue.prototype.$userRegister = {
-  nick: '',
-  id: '',
-  isActive: false
-}// I dont know if it is the best way to use a global variable
+Vue.prototype.$cable = actionCable.createConsumer(process.env.DOMAIN + "/cable");
+Vue.use(vueSession)
 
 
 const router = createRouter()

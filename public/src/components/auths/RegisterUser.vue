@@ -7,7 +7,6 @@
 
 <script>
 
-
 export default {
   name: 'RegisterUser',
   data () {
@@ -21,9 +20,8 @@ export default {
       this.$http.post(this.urlAction,  {nick: this.userNick})
       .then(function(response){
 
-        this.$userRegister.nick = response.data.nick
-        this.$userRegister.id = response.data.id
-        this.$userRegister.active = true
+         this.$session.start()
+         this.$session.set('id', response.data.id)
 
         this.$router.push('rooms')
 
