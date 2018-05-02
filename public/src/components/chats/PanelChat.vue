@@ -1,11 +1,19 @@
 <template>
   <div>
-    <h1>Panel Chat</h1>
+    <h1>Chat</h1>
 
-    <div id="panelChat" v-html="htmlConversation"></div>
-    <input type="text" v-model="message" >
-    <input type="button" value="enviar" v-on:click="sendMessage">
+    <div id="panelChat" class="col s12" v-html="htmlConversation"></div>
+    <div class="row">
 
+      <div class="input-field col s12">
+        <input id="roomName" type="text" v-model="message" >
+      </div>
+
+      <button class="btn waves-effect waves-light col s2" v-on:click="sendMessage" type="button">
+        Enviar
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
   </div>
 
 </template>
@@ -33,7 +41,7 @@ export default {
       this.channelSuscribe =
       this.$cable.subscriptions.create({ channel: "ChatChannel", room: this.roomId }, {
         connected: function() {
-          console.log('conectado a rails')
+
         },
 
         received: function(data) {
@@ -66,10 +74,10 @@ export default {
 <style scoped>
 
 #panelChat {
-  border: 1px solid;
+  border: 1px solid #616161 ;
+  overflow: auto;
   margin: 10px auto;
   height: 400px;
-  width: 600px;
 }
 
 

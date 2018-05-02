@@ -1,7 +1,16 @@
 <template>
   <div>
-    <input type="text" v-model="roomName">
-    <input type="button" v-on:click="createRoom" value="Guardar">
+
+    <div class="input-field">
+      <input  id="roomName" type="text" v-model="roomName" >
+      <label  class="active" for="roomName">Nombre de la sala</label>
+    </div>
+
+
+    <button class="btn waves-effect waves-light row" v-on:click="createRoom" type="button">
+      Guardar
+      <i class="material-icons right">send</i>
+    </button>
   </div>
 </template>
 

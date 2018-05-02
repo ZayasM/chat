@@ -15,7 +15,7 @@ class ChatChannel < ApplicationCable::Channel
     @message.user_id = data['user_id']
     @message.room_id = data['room_id']
     @message.save
-    # I think there are better way
+    # I think there are better ways
     #Message.all.desc('_id').limit(20)
 
     ActionCable.server.broadcast(
