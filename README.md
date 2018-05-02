@@ -1,24 +1,35 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Requisitos mínimos:
 
-* Ruby version
+* Ruby 2.5
+* Mongo 3.2.19
+* NPM 5.6.0
+* Node v8.11.1
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+* Base de datos:
 
-* Database initialization
+usamos las bases de datos que nos da mongo por defecto, pero podrías cambiarlo:
+ /config/mongoid.yml
 
-* How to run the test suite
+* Dependencias vue, dentro de la carpeta public:
 
-* Services (job queues, cache servers, search engines, etc.)
+npm install
 
-* Deployment instructions
+* Dependecias RoR, en la carpeta raíz:
 
-* ...
+bundle install
+
+
+* Lanzar el servidor de vue, dentro del a carpeta public:
+
+npm run dev
+
+*  Lanzar el servidor de RoR, en la carpeta raíz:
+
+rails s
+
+* para inicializar los tests: bundle exe rspec
