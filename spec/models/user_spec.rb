@@ -9,9 +9,10 @@ RSpec.describe User, type: :model do
     expect(user).to be_valid
   end
 
-  it "has a nick present" do
+  it "nick cant be nil" do
     invalidUser.nick = nil;
-    expect(invalidUser).to be_invalid
+    invalidUser.valid?
+    expect(invalidUser.errors[:nick]).to include("can't be blank")
   end
 
 end

@@ -10,12 +10,14 @@ RSpec.describe Room, type: :model do
 
   it "has a present name" do
     invalidRoom.name = nil;
-    expect(invalidRoom).to be_invalid
+    invalidRoom.valid?
+    expect(invalidRoom.errors[:name]).to include("can't be blank")
   end
 
   it "has a unique name" do
     invalidRoom.name = room.name;
-    expect(invalidRoom).to be_invalid
+    invalidRoom.valid?
+    expect(invalidRoom.errors[:name]).to include("is already taken")
   end
 
 end
