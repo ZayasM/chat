@@ -2,11 +2,26 @@
   <div>
     <h1>Chat</h1>
 
-    <div id="panelChat" class="col s12" v-html="htmlConversation"></div>
-    <div class="row">
+    <div id="panelChat" class="col s12">
+      <ul>
 
+        <get-message-chat v-bind:roomId="roomId" v-on:refresh-message="insertMessage">
+        </get-message-chat>
+
+        <li v-for="item in listMessage">
+
+          <strong>
+            {{item.nick}}
+          </strong>
+          {{item.message}}
+
+        </li>
+      </ul>
+    </div>
+
+    <div class="row">
       <div class="input-field col s12">
-        <input id="roomName" type="text" v-model="message" >
+        <input id="roomName" type="text" v-on:keyup.enter="sendMessage" v-model="message" >
       </div>
 
       <button class="btn waves-effect waves-light col s2" v-on:click="sendMessage" type="button">
@@ -20,6 +35,7 @@
 
 <script>
 
+import GetMessageChat from './GetMessageChat'
 
 export default {
   name: 'PanelChat',
@@ -27,9 +43,13 @@ export default {
     return {
       message: '',
       channelSuscribe: '',
-      htmlConversation: '',
-      roomId: this.$route.params.id
+      roomId: this.$route.params.id,
+      listMessage : []
     }
+  },
+
+  components : {
+    GetMessageChat
   },
 
   mounted : function () {
@@ -64,8 +84,10 @@ export default {
     },
 
     insertMessage : function (nick, message){
-      this.htmlConversation +=
-      "<p><strong>" + nick + ":</strong>" + message + "</p>";
+      this.listMessage.push({
+        nick: nick,
+        message: message
+      })
     },
   }
 }

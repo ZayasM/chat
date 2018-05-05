@@ -54,7 +54,7 @@ export default {
     getRooms: function (){
       this.$http.get(this.urlAction)
       .then(function(response){
-        this.listRoom = response.data;
+        this.listRoom = response.data
 
       }.bind(this))
     }
