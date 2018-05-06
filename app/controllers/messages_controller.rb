@@ -16,6 +16,7 @@ class MessagesController < ApplicationController
     end
 
     json_response(messageNick)
+    
   end
 
 end

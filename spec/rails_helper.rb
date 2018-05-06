@@ -5,6 +5,7 @@ require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
+require 'mongoid-rspec'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -58,7 +59,7 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include RequestSpecHelper, type: :request
-
+  config.include Mongoid::Matchers, type: :model
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
