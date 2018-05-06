@@ -6,7 +6,7 @@ class RoomsController < ApplicationController
   end
 
   def create
-    @room = Room.create(room_params)
+    @room = Room.create!(room_params)
     json_response(@room, :created)
   end
 
